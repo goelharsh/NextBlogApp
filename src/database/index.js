@@ -1,10 +1,13 @@
 import mongoose from "mongoose";
 
-const connectDB = async()=>{
-    const connectionUrl = 'mongodb+srv://harshgoel626:YpJTI2N6dJzCta8X@cluster0.igur90m.mongodb.net/nextBlogApp'
+const connectToDB = async () => {
+  const connectionUrl =
+    "mongodb+srv://harshgoel626:YpJTI2N6dJzCta8X@cluster0.igur90m.mongodb.net/nextBlogApp";
 
-    ;(await mongoose.connect(connectionUrl)).isObjectIdOrHexString(()=> console.log('DB Connected Successfully'))
-    .catch(()=> console.log('Unable to connect DB'))
-}
+  mongoose
+    .connect(connectionUrl)
+    .then(() => console.log("blog database connection is successfull"))
+    .catch((error) => console.log(error));
+};
 
-export default connectDB  
+export default connectToDB;
